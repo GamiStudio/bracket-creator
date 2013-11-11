@@ -13,35 +13,35 @@ body {
   float: left; }
   .round:last-child .lines {
     display: none; }
-  .round.first .matches .match {
+  .round.one .matches .match {
     padding: 10px 0; }
-  .round.first .lines .corner {
+  .round.one .lines .corner {
     height: 71px;
     margin-top: 34px; }
-  .round.first .lines .connector {
+  .round.one .lines .connector {
     margin-top: 69px; }
-  .round.second .matches .match {
+  .round.two .matches .match {
     padding: 45px 0; }
-  .round.second .lines .corner {
+  .round.two .lines .corner {
     height: 141px;
     margin-top: 69px; }
-  .round.second .lines .connector {
+  .round.two .lines .connector {
     margin-top: 139px; }
-  .round.third .matches .match {
+  .round.three .matches .match {
     padding: 115px 0; }
-  .round.third .lines .corner {
+  .round.three .lines .corner {
     height: 281px;
     margin-top: 139px; }
-  .round.third .lines .connector {
+  .round.three .lines .connector {
     margin-top: 279px; }
-  .round.fourth {
+  .round.four {
     width: 195px; }
-    .round.fourth .matches .match {
+    .round.four .matches .match {
       padding: 255px 0; }
-    .round.fourth .lines .corner {
+    .round.four .lines .corner {
       height: 281px;
       margin-top: 139px; }
-    .round.fourth .lines .connector {
+    .round.four .lines .connector {
       margin-top: 279px; }
 
 .group .matches {

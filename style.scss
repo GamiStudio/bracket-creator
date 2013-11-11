@@ -21,7 +21,7 @@ body {
     }
   }
 
-  &.first {
+  &.one {
     .matches {
       .match {
         padding: 10px 0; // p = ((2^x) - 1) + 10
@@ -39,7 +39,7 @@ body {
     }
   }
 
-  &.second {
+  &.two {
     .matches {
       .match {
         padding: 45px 0; // p = ((2^x) - 1) + 10
@@ -56,7 +56,7 @@ body {
     }
   }
 
-  &.third {
+  &.three {
     .matches {
       .match {
         padding: 115px 0; // p = ((2^x) - 1) + 10
@@ -73,7 +73,7 @@ body {
     }
   }
 
-  &.fourth {
+  &.four {
     width: 195px;
     .matches {
       .match {
