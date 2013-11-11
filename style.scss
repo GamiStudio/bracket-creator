@@ -1,0 +1,160 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+  font-family: Verdana;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+.round {
+  width: 235px;
+  overflow: hidden;
+  float: left;
+
+  &:last-child {
+    .lines {
+      display: none;
+    }
+  }
+
+  &.first {
+    .matches {
+      .match {
+        padding: 10px 0; // p = ((2^x) - 1) + 10
+      }
+    }
+
+    .lines {
+      .corner {
+        height: 71px; //((matches height) / 2) + 1
+        margin-top: 34px; //((matches height) / 4) - 1
+      }
+      .connector {
+        margin-top: 69px; //((matches height) / 2) - 1
+      }
+    }
+  }
+
+  &.second {
+    .matches {
+      .match {
+        padding: 45px 0; // p = ((2^x) - 1) + 10
+      }
+    }
+    .lines {
+      .corner {
+        height: 141px; //((matches height) / 2) + 1
+        margin-top: 69px; //((matches height) / 4) - 1
+      }
+      .connector {
+        margin-top: 139px; //((matches height) / 2) - 1
+      }
+    }
+  }
+
+  &.third {
+    .matches {
+      .match {
+        padding: 115px 0; // p = ((2^x) - 1) + 10
+      }
+    }
+    .lines {
+      .corner {
+        height: 281px; //((matches height) / 2) + 1
+        margin-top: 139px; //((matches height) / 4) - 1
+      }
+      .connector {
+        margin-top: 279px; //((matches height) / 2) - 1
+      }
+    }
+  }
+
+  &.fourth {
+    width: 195px;
+    .matches {
+      .match {
+        padding: 255px 0; // p = ((2^x) - 1) + 10
+      }
+    }
+    .lines {
+      .corner {
+        height: 281px; //((matches height) / 2) + 1
+        margin-top: 139px; //((matches height) / 4) - 1
+      }
+      .connector {
+        margin-top: 279px; //((matches height) / 2) - 1
+      }
+    }
+  }
+}
+
+.group {
+
+  .matches {
+
+    float: left;
+
+    .match {
+      width: 195px;
+      color: #333;
+
+      .player {
+        height: 25px;
+        font-size: 13px;
+        // padding: 0 10px;
+        background-color: #fff;
+        border: solid 1px #cbcbcb;
+
+        &.one {
+          margin-bottom: -1px;
+        }
+
+        &.two {
+          margin-bottom: 1px;
+        }
+
+        &.loser {
+          .name {
+            color: #cbcbcb;
+          }
+        }
+
+        .name {
+          float: left;
+          padding-left: 10px;
+          line-height: 23px;
+        }
+
+        .score {
+          width: 25px;
+          float: right;
+          line-height: 19px;
+          margin: 2px 0;
+          border-left: solid 1px #cbcbcb;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .lines {
+    div {
+      float: left;
+    }
+    .corner {
+      width: 20px;
+      border-top: solid 1px #cbcbcb;
+      border-right: solid 1px #cbcbcb;
+      border-bottom: solid 1px #cbcbcb;
+    }
+
+    .connector {
+      width: 20px;
+      border-bottom: solid 1px #cbcbcb;
+    }
+  }
+}
