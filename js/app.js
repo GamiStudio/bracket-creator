@@ -1,9 +1,11 @@
+// var myApp = angular.module('bababa', []);
+
 (function() {
   window.Bracket = {
     roundHtml: '<div class="round"></div>',
     groupHtml: '<div class="group"></div>',
     matchesHtml: '<div class="matches"></div>',
-    matchHtml: '<div class="match"></div>',
+    matchHtml: '<div class="match" ng-click="alert(1);"></div>',
     playerHtml: '<div class="player"></div>',
     nameHtml: '<span class="name"></span>',
     scoreHtml: '<span class="score"></span>',
