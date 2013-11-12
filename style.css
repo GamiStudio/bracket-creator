@@ -49,6 +49,10 @@ body {
   .group .matches .match {
     width: 195px;
     color: #333; }
+    .group .matches .match .player:first-child {
+      margin-bottom: -1px; }
+    .group .matches .match .player:last-child {
+      margin-bottom: 1px; }
     .group .matches .match .player {
       height: 25px;
       font-size: 13px;
