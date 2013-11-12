@@ -21,19 +21,22 @@
       _.forEach(roundsTemp, function(round) {
         var roundElm = $(Bracket.roundHtml);
         roundElm.addClass(numbers[count]);
+        var m1, m2;
 
         if (round.matches.length == 1) {
           roundElm.append(Bracket.buildGroup(round, 1));
 
-          var m1 = round.matches.shift();
-        };
+          m1 = round.matches.shift();
+          m2 = null;
+        }
 
         while(round.matches.length >= 2) {
           roundElm.append(Bracket.buildGroup(round, 2));
 
-          var m1 = round.matches.shift();
-          var m2 = round.matches.shift();
-        };
+          m1 = round.matches.shift();
+          m2 = round.matches.shift();
+        }
+
         count++;
         $('.container').append(roundElm);
       });
@@ -69,7 +72,7 @@
       return match;
     },
     buildPlayer: function(data) {
-      var playerElm = $(Bracket.playerHtml)
+      var playerElm = $(Bracket.playerHtml);
       var nameElm = $(Bracket.nameHtml);
       var scoreElm = $(Bracket.scoreHtml);
       nameElm.text(data.name);
@@ -113,7 +116,7 @@
       });
     }
   };
-})()
+})();
 
 
 var rounds = [{
@@ -220,6 +223,6 @@ var rounds = [{
       "club": "china taipey"
     }
   }]
-}]
+}];
 
 Bracket.setup(rounds);
