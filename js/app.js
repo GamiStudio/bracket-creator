@@ -5,7 +5,7 @@
     roundHtml: '<div class="round"></div>',
     groupHtml: '<div class="group"></div>',
     matchesHtml: '<div class="matches"></div>',
-    matchHtml: '<div class="match" ng-click="alert(1);"></div>',
+    matchHtml: '<div class="match"></div>',
     playerHtml: '<div class="player"></div>',
     nameHtml: '<span class="name"></span>',
     scoreHtml: '<span class="score"></span>',
@@ -37,6 +37,8 @@
         count++;
         $('.container').append(roundElm);
       });
+
+      Bracket.defineClicks();
     },
     buildGroup: function(round, matchesNumber) {
       var groupElm = $(Bracket.groupHtml);
@@ -60,6 +62,7 @@
     },
     buildMatch: function(data) {
       var match = $(Bracket.matchHtml);
+      match.attr('data-index', data.id);
       match.append(Bracket.buildPlayer(data.player_1));
       match.append(Bracket.buildPlayer(data.player_2));
       Bracket.matchesList.push(match);
@@ -74,6 +77,40 @@
       playerElm.append(nameElm);
       playerElm.append(scoreElm);
       return playerElm;
+    },
+    defineClicks: function() {
+      $('.container').on('click', '.match', function(event) {
+        $('.popup-container').toggle();
+        var matchIndex = $(this).data('index');
+        var names = _.map($(this).find('.player .name'), function(elem) {
+          return $(elem).text();
+        });
+        Bracket.copyInfoToPopup(matchIndex, names);
+      });
+
+      $('.popup').click(function(event) {
+        event.stopPropagation();
+      });
+
+      $('.popup-container').click(function(event) {
+        $('.popup-container').toggle();
+      });
+
+      $('form').submit(function(event) {
+        event.preventDefault();
+        Bracket.copyPopupInfoToMatch();
+        $('.popup-container').toggle();
+      });
+    },
+    copyInfoToPopup: function(id, playerNames) {
+      $('form input[type=hidden]').val(id);
+      $('.player-one .player-name').text(playerNames[0]);
+      $('.player-two .player-name').text(playerNames[1]);
+    },
+    copyPopupInfoToMatch: function() {
+      var inputInfo = _.map($('.popup input'), function(elem) {
+        return $(elem).val();
+      });
     }
   };
 })()
@@ -81,7 +118,7 @@
 
 var rounds = [{
   "matches": [{
-    "id": null,
+    "id": 1,
     "player_1": {
       "id": 1,
       "name": "Jan-Ove Waldner",
@@ -95,7 +132,7 @@ var rounds = [{
       "club": "china taipey"
     }
   }, {
-    "id": null,
+    "id": 2,
     "player_1": {
       "id": 2,
       "name": "Werner Schlager",
@@ -109,7 +146,7 @@ var rounds = [{
       "club": "japan"
     }
   }, {
-      "id": null,
+      "id": 3,
       "player_1": {
         "id": 3,
         "name": "Ma Long",
@@ -123,7 +160,7 @@ var rounds = [{
         "club": "china"
       }
   }, {
-      "id": null,
+      "id": 4,
       "player_1": {
         "id": 4,
         "name": "Timo Boll",
@@ -139,7 +176,7 @@ var rounds = [{
   }]
 },{
   "matches": [{
-    "id": null,
+    "id": 5,
     "player_1": {
       "id": 1,
       "name": "Jan-Ove Waldner",
@@ -153,7 +190,7 @@ var rounds = [{
       "club": "china taipey"
     }
   }, {
-    "id": null,
+    "id": 6,
     "player_1": {
       "id": 2,
       "name": "Werner Schlager",
@@ -169,7 +206,7 @@ var rounds = [{
   }]
 },{
   "matches": [{
-    "id": null,
+    "id": 7,
     "player_1": {
       "id": 1,
       "name": "Jan-Ove Waldner",

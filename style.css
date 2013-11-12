@@ -7,6 +7,23 @@
 body {
   background-color: #f1f1f1; }
 
+.popup-container {
+  display: none;
+  width: 1000px;
+  height: 1000px; }
+
+.popup {
+  width: 600px;
+  height: 200px;
+  z-index: 1000;
+  margin: 0 auto;
+  background-color: #fff;
+  position: absolute; }
+  .popup div {
+    float: left; }
+    .popup div * {
+      float: left; }
+
 .round {
   width: 235px;
   overflow: hidden;
@@ -48,7 +65,8 @@ body {
   float: left; }
   .group .matches .match {
     width: 195px;
-    color: #333; }
+    color: #333;
+    cursor: pointer; }
     .group .matches .match .player:first-child {
       margin-bottom: -1px; }
     .group .matches .match .player:last-child {

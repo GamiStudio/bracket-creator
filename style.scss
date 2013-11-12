@@ -10,6 +10,28 @@ body {
   background-color: #f1f1f1;
 }
 
+.popup-container {
+  display: none;
+  width: 1000px;
+  height: 1000px;
+}
+
+.popup {
+  width: 600px;
+  height: 200px;
+  z-index: 1000;
+  margin: 0 auto;
+  background-color: #fff;
+  position: absolute;
+
+  div {
+    float: left;
+    * {
+      float: left;
+    }
+  }
+}
+
 .round {
   width: 235px;
   overflow: hidden;
@@ -101,6 +123,7 @@ body {
     .match {
       width: 195px;
       color: #333;
+      cursor: pointer;
 
       & .player:first-child {
         margin-bottom: -1px;
