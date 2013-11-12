@@ -1,10 +1,3 @@
-// angular.module('brackets', []);
-
-// angular.controller('brackets', function($scope) {
-//   $scope.rounds = rounds;
-// });
-
-
 (function() {
   window.Bracket = {
     roundHtml: '<div class="round"></div>',
@@ -19,7 +12,9 @@
 
       var numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
       var count = 1;
-      _.forEach(rounds, function(round) {
+      var roundsTemp = $.extend({}, rounds);
+
+      _.forEach(roundsTemp, function(round) {
         var roundElm = $(Bracket.roundHtml);
         roundElm.addClass(numbers[count]);
         while(round.matches.length >= 2) {
@@ -35,7 +30,9 @@
 
           var m1 = round.matches.shift();
           var m2 = round.matches.shift();
+
         };
+        count++;
         $('.container').append(roundElm);
       });
     },
@@ -116,6 +113,52 @@ var rounds = [{
           "points": 55,
           "club": "china"
       }
+  }]
+},{
+  "matches": [{
+    "id": null,
+    "player_1": {
+        "id": 1,
+        "name": "Jan-Ove Waldner",
+        "points": 99,
+        "club": "sweden"
+    },
+    "player_2": {
+        "id": 8,
+        "name": "Chuen Chi Chuan",
+        "points": 22,
+        "club": "china taipey"
+    }
+  }, {
+    "id": null,
+    "player_1": {
+        "id": 2,
+        "name": "Werner Schlager",
+        "points": 88,
+        "club": "austria"
+    },
+    "player_2": {
+        "id": 7,
+        "name": "Jun Mizutani",
+        "points": 33,
+        "club": "japan"
+    }
+  }]
+},{
+  "matches": [{
+    "id": null,
+    "player_1": {
+        "id": 1,
+        "name": "Jan-Ove Waldner",
+        "points": 99,
+        "club": "sweden"
+    },
+    "player_2": {
+        "id": 8,
+        "name": "Chuen Chi Chuan",
+        "points": 22,
+        "club": "china taipey"
+    }
   }]
 }]
 
