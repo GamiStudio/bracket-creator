@@ -18,11 +18,7 @@
         var roundElm = $(Bracket.roundHtml);
         roundElm.addClass(numbers[count]);
         while(round.matches.length >= 2) {
-          var groupElm = $(Bracket.groupHtml);
-
-          groupElm.append(Bracket.buildMatches(round));
-
-          roundElm.append(groupElm);
+          roundElm.append(Bracket.buildGroup(round));
 
           var m1 = round.matches.shift();
           var m2 = round.matches.shift();
@@ -30,6 +26,11 @@
         count++;
         $('.container').append(roundElm);
       });
+    },
+    buildGroup: function(round) {
+      var groupElm = $(Bracket.groupHtml);
+      groupElm.append(Bracket.buildMatches(round));
+      return groupElm;
     },
     buildMatches: function(round) {
       var matchesElm = $(Bracket.matchesHtml);
