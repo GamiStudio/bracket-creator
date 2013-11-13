@@ -47,6 +47,10 @@ body {
     .matches {
       .match {
         padding: 10px 0; // p = ((2^x) - 1) + 10
+
+        &.bye {
+          padding: 22px 0; // p = ((2^x) - 1) + 10
+        }
       }
     }
 

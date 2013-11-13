@@ -32,6 +32,8 @@ body {
     display: none; }
   .round.one .matches .match {
     padding: 10px 0; }
+    .round.one .matches .match.bye {
+      padding: 22px 0; }
   .round.one .lines .corner {
     height: 71px;
     margin-top: 34px; }
