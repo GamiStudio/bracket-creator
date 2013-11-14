@@ -10,7 +10,6 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
     $scope.byes= [];
 
     $scope.byes.push(findByes($scope));
-    console.log($scope.byes);
 
     byeToNextRound($scope);
   }
@@ -30,6 +29,7 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   };
 
   $scope.byeClass = function(parentIndex, index) {
+
     if(!$scope.rounds[parentIndex].matches[index].player_2 || !$scope.rounds[parentIndex].matches[index].player_1) {
       return 'match-container bye';
     }
@@ -53,5 +53,10 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
         $scope.rounds[1].matches[$scope.byes[i]].player_1 = $scope.rounds[0].matches[$scope.byes[i]].player_1;
       }
     }
+  }
+
+  $scope.getConnectorsNumber = function(parentIndex) {
+    var number = $scope.rounds[0].matches.length / 2;
+    return new Array(number);
   }
 });
