@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div ng-app="brackets-creator">
+    <div ng-controller="tournamentOrganizer" class="container" style="width: 900px;margin: 0 auto;">
+      <div ng-repeat="round in rounds">
+        <div ng-repeat="match in round.matches">
+          <p>{{match.player_1.name}}</p>
+          <p>{{match.player_2.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.2.1/lodash.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

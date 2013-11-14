@@ -28,80 +28,84 @@ body {
   width: 235px;
   overflow: hidden;
   float: left; }
-  .round:last-child .lines {
-    display: none; }
-  .round.one .matches .match {
+  .round.one .match-container {
     padding: 10px 0; }
-    .round.one .matches .match.bye {
-      padding: 22px 0; }
-  .round.one .lines .corner {
-    height: 71px;
-    margin-top: 34px; }
-  .round.one .lines .connector {
-    margin-top: 69px; }
-  .round.two .matches .match {
+  .round.one .connector:first-child {
+    margin-top: 10px; }
+  .round.one .connector {
+    margin-top: 45px; }
+    .round.one .connector .bracket-connector {
+      height: 71px; }
+    .round.one .connector .line-connector {
+      height: 36px; }
+  .round.two .match-container {
     padding: 45px 0; }
-  .round.two .lines .corner {
-    height: 141px;
-    margin-top: 69px; }
-  .round.two .lines .connector {
-    margin-top: 139px; }
-  .round.three .matches .match {
+  .round.two .connector:first-child {
+    margin-top: 45px; }
+  .round.two .connector {
+    margin-top: 45px; }
+    .round.two .connector .bracket-connector {
+      height: 141px; }
+    .round.two .connector .line-connector {
+      height: 71px; }
+  .round.three .match-container {
     padding: 115px 0; }
-  .round.three .lines .corner {
-    height: 281px;
-    margin-top: 139px; }
-  .round.three .lines .connector {
-    margin-top: 279px; }
-  .round.four {
-    width: 195px; }
-    .round.four .matches .match {
-      padding: 255px 0; }
-    .round.four .lines .corner {
-      height: 281px;
-      margin-top: 139px; }
-    .round.four .lines .connector {
-      margin-top: 279px; }
-
-.group .matches {
-  float: left; }
-  .group .matches .match {
-    width: 195px;
-    color: #333;
-    cursor: pointer; }
-    .group .matches .match .player:first-child {
-      margin-bottom: -1px; }
-    .group .matches .match .player:last-child {
-      margin-bottom: 1px; }
-    .group .matches .match .player {
-      height: 25px;
-      font-size: 13px;
-      background-color: #fff;
-      border: solid 1px #cbcbcb; }
-      .group .matches .match .player.one {
-        margin-bottom: -1px; }
-      .group .matches .match .player.two {
-        margin-bottom: 1px; }
-      .group .matches .match .player.loser .name {
-        color: #cbcbcb; }
-      .group .matches .match .player .name {
+  .round.three .connector:first-child {
+    margin-top: 45px; }
+  .round.three .connector {
+    margin-top: 45px; }
+    .round.three .connector .bracket-connector {
+      height: 141px; }
+    .round.three .connector .line-connector {
+      height: 71px; }
+  .round .conectors-container {
+    float: left; }
+    .round .conectors-container .connector {
+      width: 40px;
+      overflow: hidden; }
+      .round .conectors-container .connector .bracket-connector {
         float: left;
-        padding-left: 10px;
-        line-height: 23px; }
-      .group .matches .match .player .score {
-        width: 25px;
-        float: right;
-        line-height: 19px;
-        margin: 2px 0;
-        border-left: solid 1px #cbcbcb;
-        text-align: center; }
-.group .lines div {
+        width: 20px;
+        border-top: solid 1px #cbcbcb;
+        border-right: solid 1px #cbcbcb;
+        border-bottom: solid 1px #cbcbcb;
+        margin-top: 24px; }
+      .round .conectors-container .connector .line-connector {
+        float: left;
+        width: 20px;
+        border-bottom: solid 1px #cbcbcb;
+        margin-top: 24px; }
+
+.matches {
+  width: 195px;
+  overflow: hidden;
   float: left; }
-.group .lines .corner {
-  width: 20px;
-  border-top: solid 1px #cbcbcb;
-  border-right: solid 1px #cbcbcb;
-  border-bottom: solid 1px #cbcbcb; }
-.group .lines .connector {
-  width: 20px;
-  border-bottom: solid 1px #cbcbcb; }
+  .matches .match-container {
+    margin-bottom: 1px; }
+    .matches .match-container .match {
+      width: 195px;
+      color: #333;
+      cursor: pointer; }
+      .matches .match-container .match .player {
+        font-size: 13px;
+        background-color: #fff; }
+        .matches .match-container .match .player.one {
+          height: 25px;
+          border: solid 1px #cbcbcb; }
+        .matches .match-container .match .player.two {
+          height: 24px;
+          border: solid 1px #cbcbcb;
+          border-top: 0 !important; }
+        .matches .match-container .match .player.loser .name {
+          color: #cbcbcb; }
+        .matches .match-container .match .player .name {
+          float: left;
+          padding-left: 10px;
+          line-height: 23px; }
+        .matches .match-container .match .player .score {
+          width: 25px;
+          float: right;
+          line-height: 19px;
+          margin: 2px 0;
+          border-left: solid 1px #cbcbcb;
+          text-align: center; }

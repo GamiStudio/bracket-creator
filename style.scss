@@ -37,92 +37,101 @@ body {
   overflow: hidden;
   float: left;
 
-  &:last-child {
-    .lines {
-      display: none;
-    }
-  }
-
   &.one {
-    .matches {
-      .match {
-        padding: 10px 0; // p = ((2^x) - 1) + 10
-
-        &.bye {
-          padding: 22px 0; // p = ((2^x) - 1) + 10
-        }
-      }
+    .match-container {
+      padding: 10px 0;
     }
 
-    .lines {
-      .corner {
-        height: 71px; //((matches height) / 2) + 1
-        margin-top: 34px; //((matches height) / 4) - 1
+    .connector:first-child {
+      margin-top: 10px;
+    }
+
+    .connector {
+      margin-top: 45px;
+      .bracket-connector {
+        height: 71px;
       }
-      .connector {
-        margin-top: 69px; //((matches height) / 2) - 1
+      .line-connector {
+        height: 36px;
       }
     }
   }
 
   &.two {
-    .matches {
-      .match {
-        padding: 45px 0; // p = ((2^x) - 1) + 10
-      }
+    .match-container {
+      padding: 45px 0;
     }
-    .lines {
-      .corner {
-        height: 141px; //((matches height) / 2) + 1
-        margin-top: 69px; //((matches height) / 4) - 1
+
+    .connector:first-child {
+      margin-top: 45px;
+    }
+
+    .connector {
+      margin-top: 45px;
+      .bracket-connector {
+        height: 141px;
       }
-      .connector {
-        margin-top: 139px; //((matches height) / 2) - 1
+      .line-connector {
+        height: 71px;
       }
     }
   }
 
   &.three {
-    .matches {
-      .match {
-        padding: 115px 0; // p = ((2^x) - 1) + 10
-      }
+    .match-container {
+      padding: 115px 0;
     }
-    .lines {
-      .corner {
-        height: 281px; //((matches height) / 2) + 1
-        margin-top: 139px; //((matches height) / 4) - 1
+
+    .connector:first-child {
+      margin-top: 45px;
+    }
+
+    .connector {
+      margin-top: 45px;
+      .bracket-connector {
+        height: 141px;
       }
-      .connector {
-        margin-top: 279px; //((matches height) / 2) - 1
+      .line-connector {
+        height: 71px;
       }
     }
   }
 
-  &.four {
-    width: 195px;
-    .matches {
-      .match {
-        padding: 255px 0; // p = ((2^x) - 1) + 10
+  .conectors-container{
+    float: left;
+
+    .connector {
+      width: 40px;
+      overflow: hidden;
+
+      .bracket-connector {
+        float: left;
+        width: 20px;
+        border-top: solid 1px #cbcbcb;
+        border-right: solid 1px #cbcbcb;
+        border-bottom: solid 1px #cbcbcb;
+        margin-top: 24px;
       }
-    }
-    .lines {
-      .corner {
-        height: 281px; //((matches height) / 2) + 1
-        margin-top: 139px; //((matches height) / 4) - 1
-      }
-      .connector {
-        margin-top: 279px; //((matches height) / 2) - 1
+      .line-connector {
+        float: left;
+        width: 20px;
+        border-bottom: solid 1px #cbcbcb;
+        margin-top: 24px;
       }
     }
   }
 }
 
-.group {
 
-  .matches {
+.matches {
 
-    float: left;
+  width: 195px;
+  overflow: hidden;
+  float: left;
+
+  .match-container {
+
+    margin-bottom: 1px;
 
     .match {
       width: 195px;
@@ -130,26 +139,28 @@ body {
       cursor: pointer;
 
       & .player:first-child {
-        margin-bottom: -1px;
       }
 
       & .player:last-child {
-        margin-bottom: 1px;
       }
 
       .player {
-        height: 25px;
+        // height: 25px;
         font-size: 13px;
         // padding: 0 10px;
         background-color: #fff;
-        border: solid 1px #cbcbcb;
+        // border: solid 1px #cbcbcb;
 
         &.one {
-          margin-bottom: -1px;
+          height: 25px;
+          border: solid 1px #cbcbcb;
         }
 
         &.two {
-          margin-bottom: 1px;
+          height: 24px;
+          border: solid 1px #cbcbcb;
+          border-top: 0 !important;
+
         }
 
         &.loser {
@@ -175,21 +186,5 @@ body {
       }
     }
   }
-
-  .lines {
-    div {
-      float: left;
-    }
-    .corner {
-      width: 20px;
-      border-top: solid 1px #cbcbcb;
-      border-right: solid 1px #cbcbcb;
-      border-bottom: solid 1px #cbcbcb;
-    }
-
-    .connector {
-      width: 20px;
-      border-bottom: solid 1px #cbcbcb;
-    }
-  }
 }
+
