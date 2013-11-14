@@ -6,10 +6,16 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
 
   function getData(data) {
     $scope.rounds = data;
+
+    $scope.byes= [];
+
+    $scope.byes.push(findByes($scope));
+    console.log($scope.byes);
+
+    byeToNextRound($scope);
   }
 
   $scope.hidePlayer1 = function(parentIndex, index) {
-    console.log(parentIndex);
     if(!$scope.rounds[parentIndex].matches[index].player_1) {
       return true;
     }
@@ -17,26 +23,35 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   };
 
   $scope.hidePlayer2 = function(parentIndex, index) {
-    console.log(parentIndex);
     if(!$scope.rounds[parentIndex].matches[index].player_2) {
       return true;
     }
     else return false;
   };
-  // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-  //   var roundsNumber = $scope.rounds.length;
-  //   var matchesArray = $('.match-container');
 
-  //   console.log('working');
+  $scope.byeClass = function(parentIndex, index) {
+    if(!$scope.rounds[parentIndex].matches[index].player_2 || !$scope.rounds[parentIndex].matches[index].player_1) {
+      return 'match-container bye';
+    }
+    else return 'match-container';
+  };
 
-  //   for (var j = 0; j < $scope.rounds[0].length; j++) {
-  //     if (!scope.rounds[0].matches[j].player_1) {
-  //       matchesArray[j].remove('.one');
-  //       matchesArray[j].find('.player').removeClasse('.two').addClass('one');
-  //     }
-  //     else if (!scope.rounds[0].matches[j].player_2) {
-  //       matchesArray[j].remove('.two');
-  //     }
-  //   }
-  // });
+  function findByes($scope) {
+    for(var i = 0; i < $scope.rounds[0].matches.length; i++) {
+      if(!$scope.rounds[0].matches[i].player_2 || !$scope.rounds[0].matches[i].player_1) {
+        return i;
+      }
+    }
+  }
+
+  function byeToNextRound($scope) {
+    for(var i = 0; i < $scope.byes.length; i++) {
+      if($scope.rounds[0].matches[$scope.byes[i]].player_1) {
+
+        //ainda tenho que calcular para aonde, exatamente, mandar o jogador
+
+        $scope.rounds[1].matches[$scope.byes[i]].player_1 = $scope.rounds[0].matches[$scope.byes[i]].player_1;
+      }
+    }
+  }
 });
