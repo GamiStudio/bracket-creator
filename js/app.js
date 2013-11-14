@@ -14,26 +14,11 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
     byeToNextRound($scope);
   }
 
-  $scope.hidePlayer1 = function(parentIndex, index) {
-    if(!$scope.rounds[parentIndex].matches[index].player_1) {
-      return true;
-    }
-    else return false;
-  };
-
-  $scope.hidePlayer2 = function(parentIndex, index) {
-    if(!$scope.rounds[parentIndex].matches[index].player_2) {
-      return true;
-    }
-    else return false;
-  };
-
   $scope.byeClass = function(parentIndex, index) {
-
-    if(!$scope.rounds[parentIndex].matches[index].player_2 || !$scope.rounds[parentIndex].matches[index].player_1) {
-      return 'match-container bye';
-    }
-    else return 'match-container';
+    if(!$scope.rounds[parentIndex].matches[index].player_2 ||
+        !$scope.rounds[parentIndex].matches[index].player_1) {
+      return 'bye';
+    };
   };
 
   function findByes($scope) {
