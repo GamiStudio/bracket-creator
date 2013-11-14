@@ -38,12 +38,7 @@
     }
   }, {
     "id": null,
-    "player_1": {
-      "id": 7,
-      "name": "Jun Mizutani",
-      "points": 33,
-      "club": "japan"
-    },
+    "player_1": null,
     "player_2": {
       "id": 2,
       "name": "Werner Schlager",
