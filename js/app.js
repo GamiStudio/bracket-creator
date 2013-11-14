@@ -6,16 +6,37 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
 
   function getData(data) {
     $scope.rounds = data;
-
-    $scope.initRoundNumber = $scope.rounds.length;
-    $scope.firstRoundMatchesNum = $scope.rounds[0].matches.length;
-    $scope.playerNumber = $scope.firstRoundMatchesNum * 2;
-    $scope.totalRoundsNumber = Math.log($scope.playerNumber) / Math.log(2);
-
-    for (var i = 0; i < totalRoundsNumber - initRoundNumber; i++) {
-      $scope.rounds.push(null);
-    }
-
-    console.log($scope.rounds);
   }
+
+  $scope.hidePlayer1 = function(parentIndex, index) {
+    console.log(parentIndex);
+    if(!$scope.rounds[parentIndex].matches[index].player_1) {
+      return true;
+    }
+    else return false;
+  };
+
+  $scope.hidePlayer2 = function(parentIndex, index) {
+    console.log(parentIndex);
+    if(!$scope.rounds[parentIndex].matches[index].player_2) {
+      return true;
+    }
+    else return false;
+  };
+  // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+  //   var roundsNumber = $scope.rounds.length;
+  //   var matchesArray = $('.match-container');
+
+  //   console.log('working');
+
+  //   for (var j = 0; j < $scope.rounds[0].length; j++) {
+  //     if (!scope.rounds[0].matches[j].player_1) {
+  //       matchesArray[j].remove('.one');
+  //       matchesArray[j].find('.player').removeClasse('.two').addClass('one');
+  //     }
+  //     else if (!scope.rounds[0].matches[j].player_2) {
+  //       matchesArray[j].remove('.two');
+  //     }
+  //   }
+  // });
 });

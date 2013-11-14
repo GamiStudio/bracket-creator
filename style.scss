@@ -37,9 +37,17 @@ body {
   overflow: hidden;
   float: left;
 
-  &.one {
+  &:last-child {
+    width: 195px;
+  }
+
+  &:nth-child(1) {
     .match-container {
       padding: 10px 0;
+
+      &.bye {
+        padding: 22px 0;
+      }
     }
 
     .connector:first-child {
@@ -57,7 +65,7 @@ body {
     }
   }
 
-  &.two {
+  &:nth-child(2) {
     .match-container {
       padding: 45px 0;
     }
@@ -67,7 +75,7 @@ body {
     }
 
     .connector {
-      margin-top: 45px;
+      margin-top: 115px;
       .bracket-connector {
         height: 141px;
       }
@@ -77,9 +85,29 @@ body {
     }
   }
 
-  &.three {
+  &:nth-child(3) {
     .match-container {
       padding: 115px 0;
+    }
+
+    .connector:first-child {
+      margin-top: 115px;
+    }
+
+    .connector {
+      margin-top: 255px;
+      .bracket-connector {
+        height: 281px;
+      }
+      .line-connector {
+        height: 141px;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .match-container {
+      padding: 255px 0;
     }
 
     .connector:first-child {
@@ -151,12 +179,12 @@ body {
         background-color: #fff;
         // border: solid 1px #cbcbcb;
 
-        &.one {
+        &:nth-child(1) {
           height: 25px;
           border: solid 1px #cbcbcb;
         }
 
-        &.two {
+        &:nth-child(2) {
           height: 24px;
           border: solid 1px #cbcbcb;
           border-top: 0 !important;

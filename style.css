@@ -28,35 +28,49 @@ body {
   width: 235px;
   overflow: hidden;
   float: left; }
-  .round.one .match-container {
+  .round:last-child {
+    width: 195px; }
+  .round:nth-child(1) .match-container {
     padding: 10px 0; }
-  .round.one .connector:first-child {
+    .round:nth-child(1) .match-container.bye {
+      padding: 22px 0; }
+  .round:nth-child(1) .connector:first-child {
     margin-top: 10px; }
-  .round.one .connector {
+  .round:nth-child(1) .connector {
     margin-top: 45px; }
-    .round.one .connector .bracket-connector {
+    .round:nth-child(1) .connector .bracket-connector {
       height: 71px; }
-    .round.one .connector .line-connector {
+    .round:nth-child(1) .connector .line-connector {
       height: 36px; }
-  .round.two .match-container {
+  .round:nth-child(2) .match-container {
     padding: 45px 0; }
-  .round.two .connector:first-child {
+  .round:nth-child(2) .connector:first-child {
     margin-top: 45px; }
-  .round.two .connector {
-    margin-top: 45px; }
-    .round.two .connector .bracket-connector {
+  .round:nth-child(2) .connector {
+    margin-top: 115px; }
+    .round:nth-child(2) .connector .bracket-connector {
       height: 141px; }
-    .round.two .connector .line-connector {
+    .round:nth-child(2) .connector .line-connector {
       height: 71px; }
-  .round.three .match-container {
+  .round:nth-child(3) .match-container {
     padding: 115px 0; }
-  .round.three .connector:first-child {
-    margin-top: 45px; }
-  .round.three .connector {
-    margin-top: 45px; }
-    .round.three .connector .bracket-connector {
+  .round:nth-child(3) .connector:first-child {
+    margin-top: 115px; }
+  .round:nth-child(3) .connector {
+    margin-top: 255px; }
+    .round:nth-child(3) .connector .bracket-connector {
+      height: 281px; }
+    .round:nth-child(3) .connector .line-connector {
       height: 141px; }
-    .round.three .connector .line-connector {
+  .round:nth-child(4) .match-container {
+    padding: 255px 0; }
+  .round:nth-child(4) .connector:first-child {
+    margin-top: 45px; }
+  .round:nth-child(4) .connector {
+    margin-top: 45px; }
+    .round:nth-child(4) .connector .bracket-connector {
+      height: 141px; }
+    .round:nth-child(4) .connector .line-connector {
       height: 71px; }
   .round .conectors-container {
     float: left; }
@@ -89,10 +103,10 @@ body {
       .matches .match-container .match .player {
         font-size: 13px;
         background-color: #fff; }
-        .matches .match-container .match .player.one {
+        .matches .match-container .match .player:nth-child(1) {
           height: 25px;
           border: solid 1px #cbcbcb; }
-        .matches .match-container .match .player.two {
+        .matches .match-container .match .player:nth-child(2) {
           height: 24px;
           border: solid 1px #cbcbcb;
           border-top: 0 !important; }
