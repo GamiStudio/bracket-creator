@@ -13,7 +13,7 @@
         <div class="round" ng-repeat="round in rounds">
 
           <div class="matches">
-            <div class="match-container" ng-class="byeClass($parent.$index, $index);" ng-repeat="match in round.matches">
+            <div class="match-container" ng-class="isBye(round.matches, $index);" ng-repeat="match in round.matches">
               <div class="match">
                 <div class="player" ng-if="match.player_1">
                   <span class="name">{{match.player_1.name}}</span>
