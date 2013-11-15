@@ -58,5 +58,5 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   $scope.getConnectorsNumber = function(parentIndex) {
     var number = $scope.rounds[0].matches.length / 2;
     return new Array(number);
-  }
+  };
 });
