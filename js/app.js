@@ -21,7 +21,7 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
         } else total[1]++;
       }
       return total;
-    };
+    }
   };
 
   $scope.isNotBye = function(player) {
@@ -42,11 +42,11 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
 
   function findByes(rounds) {
     for(var i = 0; i < rounds[0].matches.length; i++) {
-      if(!rounds[0].matches[i].player_2 || !rounds[0].matches[i].player_1) {
+      if(rounds[0].matches[i].player_2.type == 'bye' || rounds[0].matches[i].player_1.type == 'bye') {
         $scope.byes.push(i);
-      };
-    };
-  };
+      }
+    }
+  }
 
   function byeToNextRound(byes, rounds) {
     var byeTo;
@@ -75,10 +75,9 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   }
 
   $scope.getConnectorsNumber = function(thisRoundLength) {
-    console.log(thisRoundLength);
     var number = thisRoundLength / 2;
     if(number >= 1) {
-      return new Array(2);
+      return new Array(number);
     }
     else return 0;
   };
