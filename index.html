@@ -13,15 +13,15 @@
         <div class="round" ng-repeat="round in rounds">
 
           <div class="matches">
-            <div class="match-container" ng-class="isBye(round.matches, $index);" ng-repeat="match in round.matches">
+            <div class="match-container" ng-class="{bye: isBye(match)}" ng-repeat="match in round.matches">
               <div class="match">
-                <div class="player" ng-if="match.player_1">
+                <div class="player" ng-if="isNotBye(match.player_1)">
                   <span class="name">{{match.player_1.name}}</span>
-                  <span class="score">{{printScore(0, $parent.match.result)}}</span>
+                  <span class="score">{{printScore(0, match.result)}}</span>
                 </div>
-                <div class="player" ng-if="match.player_2">
+                <div class="player" ng-if="isNotBye(match.player_2)">
                   <span class="name">{{match.player_2.name}}</span>
-                  <span class="score">{{printScore(1, $parent.match.result)}}</span>
+                  <span class="score">{{printScore(1, match.result)}}</span>
                 </div>
               </div>
             </div>
