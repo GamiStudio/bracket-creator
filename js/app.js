@@ -83,5 +83,5 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
       }
       return aray;
     } else return [];
-  }
+  };
 });
