@@ -1,7 +1,6 @@
 var myApp = angular.module('brackets-creator', []);
 
 myApp.controller('tournamentOrganizer', function($scope, $http) {
-
   $http.get('js/data.json').success(function(data) {
     $scope.rounds = data;
 
@@ -12,7 +11,7 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
     byeToNextRound($scope.byes, $scope.rounds);
   });
 
-  $scope.getScore = function(result) {
+  var getScore = function(result) {
     var total = [0,0];
 
     if(result) {
@@ -22,34 +21,34 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
         } else total[1]++;
       }
       return total;
-    }
+    };
+  };
+
+  $scope.isNotBye = function(player) {
+    return ['bye', 'waited'].indexOf(player.type) === -1;
   };
 
   $scope.printScore = function(player, result) {
-    total = $scope.getScore(result);
+    total = getScore(result);
     if(total) {
       return total[player];
     }
-
     return null;
   };
 
-  $scope.isBye = function(matches, index) {
-    if(!matches[index].player_2 || !matches[index].player_1) {
-      return 'bye';
-    }
+  $scope.isBye = function(match, index) {
+    return [match.player_1.type, match.player_2.type].indexOf('bye') === 1;
   };
 
   function findByes(rounds) {
     for(var i = 0; i < rounds[0].matches.length; i++) {
       if(!rounds[0].matches[i].player_2 || !rounds[0].matches[i].player_1) {
         $scope.byes.push(i);
-      }
-    }
-  }
+      };
+    };
+  };
 
   function byeToNextRound(byes, rounds) {
-
     var byeTo;
 
     for(var i = 0; i < (byes.length); i++) {

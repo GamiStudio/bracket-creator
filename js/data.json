@@ -1,6 +1,18 @@
 [{
   "matches": [{
     "id": 1,
+    "player_1": {
+      "id": 1,
+      "name": "Jan-Ove Waldner",
+      "points": 99,
+      "club": "sweden",
+      "type": "regular"
+    },
+    "player_2": {
+      "type": "bye"
+    }
+  }, {
+    "id": 2,
     "result": [
       [11, 2],
       [6, 11],
@@ -9,30 +21,18 @@
       [11, 6]
     ],
     "player_1": {
-      "id": 1,
-      "name": "Jan-Ove Waldner",
-      "points": 99,
-      "club": "sweden"
-    },
-    "player_2": {
-      "id": 8,
-      "name": "Chuen Chi Chuan",
-      "points": 22,
-      "club": "china taipey"
-    }
-  }, {
-    "id": 2,
-    "player_1": {
       "id": 3,
       "name": "Ma Long",
       "points": 77,
-      "club": "china"
+      "club": "china",
+      "type": "regular"
     },
     "player_2": {
       "id": 6,
       "name": "Ma Lin",
       "points": 44,
-      "club": "china"
+      "club": "china",
+      "type": "regular"
     }
   }, {
     "id": 3,
@@ -40,13 +40,15 @@
       "id": 5,
       "name": "Xu Xin",
       "points": 55,
-      "club": "china"
+      "club": "china",
+      "type": "regular"
     },
     "player_2": {
       "id": 4,
       "name": "Timo Boll",
       "points": 66,
-      "club": "germany"
+      "club": "germany",
+      "type": "regular"
     }
   }, {
     "id": 4,
@@ -54,13 +56,15 @@
       "id": 7,
       "name": "Jun Mizutani",
       "points": 33,
-      "club": "japan"
+      "club": "japan",
+      "type": "regular"
     },
     "player_2": {
       "id": 2,
       "name": "Werner Schlager",
       "points": 88,
-      "club": "austria"
+      "club": "austria",
+      "type": "regular"
     }
   }]
 }, {
