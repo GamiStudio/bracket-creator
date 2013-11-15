@@ -75,11 +75,13 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   }
 
   $scope.getConnectorsNumber = function(thisRoundLength) {
-    console.log(thisRoundLength);
     var number = thisRoundLength / 2;
     if(number >= 1) {
-      return new Array(2);
-    }
-    else return 0;
+      var aray = []
+      for (var i = 0; i < number; i++) {
+        aray.push(i);
+      };
+      return aray;
+    } else return [];
   };
 });
