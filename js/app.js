@@ -2,61 +2,95 @@ var myApp = angular.module('brackets-creator', []);
 
 myApp.controller('tournamentOrganizer', function($scope, $http) {
 
-  $http.get('js/data.json').success(getData);
-
-  function getData(data) {
+  $http.get('js/data.json').success(function(data) {
     $scope.rounds = data;
 
     $scope.byes= [];
 
-    $scope.byes.push(findByes($scope));
+    findByes($scope.rounds);
 
-    byeToNextRound($scope);
+    byeToNextRound($scope.byes, $scope.rounds);
+  });
+
+  $scope.getScore = function(result) {
+    var total = [0,0];
+
+    if(result) {
+      for(var i = 0; i < result.length; i++) {
+        if(result[i][0] > result[i][1]) {
+          total[0]++;
+        } else total[1]++;
+      }
+      return total;
+    }
   }
 
-  $scope.hidePlayer1 = function(parentIndex, index) {
-    if(!$scope.rounds[parentIndex].matches[index].player_1) {
-      return true;
+  $scope.printScore = function(player, result) {
+    total = $scope.getScore(result);
+    if(total) {
+      return total[player];
     }
-    else return false;
+
+    return null;
+  }
+
+  $scope.isBye = function(matches, index) {
+    if(!matches[index].player_2 || !matches[index].player_1) {
+      return 'bye';
+    };
   };
 
-  $scope.hidePlayer2 = function(parentIndex, index) {
-    if(!$scope.rounds[parentIndex].matches[index].player_2) {
-      return true;
-    }
-    else return false;
-  };
-
-  $scope.byeClass = function(parentIndex, index) {
-
-    if(!$scope.rounds[parentIndex].matches[index].player_2 || !$scope.rounds[parentIndex].matches[index].player_1) {
-      return 'match-container bye';
-    }
-    else return 'match-container';
-  };
-
-  function findByes($scope) {
-    for(var i = 0; i < $scope.rounds[0].matches.length; i++) {
-      if(!$scope.rounds[0].matches[i].player_2 || !$scope.rounds[0].matches[i].player_1) {
-        return i;
+  function findByes(rounds) {
+    for(var i = 0; i < rounds[0].matches.length; i++) {
+      if(!rounds[0].matches[i].player_2 || !rounds[0].matches[i].player_1) {
+        $scope.byes.push(i);
       }
     }
   }
 
-  function byeToNextRound($scope) {
-    for(var i = 0; i < $scope.byes.length; i++) {
-      if($scope.rounds[0].matches[$scope.byes[i]].player_1) {
+  function byeToNextRound(byes, rounds) {
 
-        //ainda tenho que calcular para aonde, exatamente, mandar o jogador
+    var byeTo;
 
-        $scope.rounds[1].matches[$scope.byes[i]].player_1 = $scope.rounds[0].matches[$scope.byes[i]].player_1;
+    for(var i = 0; i < (byes.length); i++) {
+
+      if(byes[i] % 2 == 0) {
+        byeTo = byes[i] / 2;
+        if(rounds[0].matches[byes[i]].player_1) {
+          rounds[1].matches[byeTo].player_1 = rounds[0].matches[byes[i]].player_1;
+        }
+        else if(rounds[0].matches[byes[i]].player_2) {
+          rounds[1].matches[byeTo].player_1 = rounds[0].matches[byes[i]].player_2;
+        }
+      }
+      else if(byes[i] % 2 == 1) {
+        byeTo = (byes[i] - 1) / 2;
+        if(rounds[0].matches[byes[i]].player_1) {
+          rounds[1].matches[byeTo].player_2 = rounds[0].matches[byes[i]].player_1;
+        }
+        else if(rounds[0].matches[byes[i]].player_2) {
+          rounds[1].matches[byeTo].player_2 = rounds[0].matches[byes[i]].player_2;
+        }
       }
     }
   }
 
-  $scope.getConnectorsNumber = function(parentIndex) {
-    var number = $scope.rounds[0].matches.length / 2;
-    return new Array(number);
-  };
+  $scope.getConnectorsNumber = function(thisRoundLength) {
+    var number = thisRoundLength / 2;
+
+
+
+    console.log(number);
+    var array = [];
+    if(number >= 1) {
+
+      for(var i = 0; i < number; i++) {
+        array.push('a');
+      }
+
+      console.log(array);
+      return array;
+    }
+    else return 0;
+  }
 });

@@ -13,22 +13,22 @@
         <div class="round" ng-repeat="round in rounds">
 
           <div class="matches">
-            <div class="ng-class: byeClass($parent.$index, $index);" ng-repeat="match in round.matches">
+            <div class="match-container" ng-class="isBye(round.matches, $index);" ng-repeat="match in round.matches">
               <div class="match">
-                <div class="player" ng-hide="hidePlayer1($parent.$index, $index)">
+                <div class="player" ng-if="match.player_1">
                   <span class="name">{{match.player_1.name}}</span>
-                  <span class="score"></span>
+                  <span class="score">{{printScore(0, $parent.match.result)}}</span>
                 </div>
-                <div class="player" ng-hide="hidePlayer2($parent.$index, $index)">
+                <div class="player" ng-if="match.player_2">
                   <span class="name">{{match.player_2.name}}</span>
-                  <span class="score"></span>
+                  <span class="score">{{printScore(1, $parent.match.result)}}</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="conectors-container">
-            <div class="connector" ng-repeat="a in getConnectorsNumber($parent.$index)">
+            <div class="connector" ng-repeat="a in getConnectorsNumber(this.round.matches.length)">
               <div class="bracket-connector"></div>
               <div class="line-connector"></div>
             </div>
@@ -40,9 +40,8 @@
     </div>
   </div>
 
-  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.2.1/lodash.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <!-- // <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+  <script src="js/angular.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
