@@ -125,3 +125,8 @@ body {
           margin: 2px 0;
           border-left: solid 1px #cbcbcb;
           text-align: center; }
+      .matches .match-container .match .set-results input[type="number"] {
+        -webkit-appearance: none;
+        box-shadow: none !important;
+        width: 35px;
+        height: 25px; }

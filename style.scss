@@ -219,6 +219,15 @@ body {
           text-align: center;
         }
       }
+
+      .set-results {
+        input[type="number"] {
+          -webkit-appearance: none;
+          box-shadow: none !important;
+          width: 35px;
+          height: 25px;
+        }
+      }
     }
   }
 }
