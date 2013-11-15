@@ -30,6 +30,8 @@ body {
   float: left; }
   .round:last-child {
     width: 195px; }
+    .round:last-child .conectors-container {
+      display: none; }
   .round:nth-child(1) .match-container {
     padding: 10px 0; }
     .round:nth-child(1) .match-container.bye {

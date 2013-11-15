@@ -39,6 +39,9 @@ body {
 
   &:last-child {
     width: 195px;
+    .conectors-container {
+      display: none;
+    }
   }
 
   &:nth-child(1) {

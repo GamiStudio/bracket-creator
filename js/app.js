@@ -23,7 +23,7 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
       }
       return total;
     }
-  }
+  };
 
   $scope.printScore = function(player, result) {
     total = $scope.getScore(result);
@@ -32,12 +32,12 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
     }
 
     return null;
-  }
+  };
 
   $scope.isBye = function(matches, index) {
     if(!matches[index].player_2 || !matches[index].player_1) {
       return 'bye';
-    };
+    }
   };
 
   function findByes(rounds) {
@@ -54,7 +54,7 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
 
     for(var i = 0; i < (byes.length); i++) {
 
-      if(byes[i] % 2 == 0) {
+      if(byes[i] % 2 === 0) {
         byeTo = byes[i] / 2;
         if(rounds[0].matches[byes[i]].player_1) {
           rounds[1].matches[byeTo].player_1 = rounds[0].matches[byes[i]].player_1;
@@ -76,21 +76,11 @@ myApp.controller('tournamentOrganizer', function($scope, $http) {
   }
 
   $scope.getConnectorsNumber = function(thisRoundLength) {
+    console.log(thisRoundLength);
     var number = thisRoundLength / 2;
-
-
-
-    console.log(number);
-    var array = [];
     if(number >= 1) {
-
-      for(var i = 0; i < number; i++) {
-        array.push('a');
-      }
-
-      console.log(array);
-      return array;
+      return new Array(2);
     }
     else return 0;
-  }
+  };
 });
